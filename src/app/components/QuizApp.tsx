@@ -66,7 +66,7 @@ function App() {
                 }
               )}
             </div>
-            {!answeredAll && (
+            {answeredAll && (
               <article className="container mt-12">
                 <h2>Thanks for answering all the questions</h2>
                 <div className="flex flex-col items-center justify-center ">

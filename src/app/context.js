@@ -40,7 +40,8 @@ const AppProvider = ({ children }) => {
     allQuestions[initialQuestion]
   );
 
-  const [resultTags, setResultTags] = useState([...Object.keys(userResults)]);
+  // [...Object.keys(userResults)]
+  const [resultTags, setResultTags] = useState([]);
   const [answeredAll, setAnsweredAll] = useState(false);
 
   // setup form
