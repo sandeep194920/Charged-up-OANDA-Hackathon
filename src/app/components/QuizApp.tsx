@@ -14,8 +14,10 @@ function App() {
     index,
     correct,
     nextQuestion,
-    checkAnswer,
+    chooseAnswer,
     currentQuestion,
+    answeredAll,
+    resultTags,
   } = useGlobalContext();
 
   // if (waiting) {
@@ -38,35 +40,51 @@ function App() {
   return (
     <main>
       <Modal />
-      <section className="quiz">
-        {/* <p className="correct-answers">
+      <div className="flex flex-col items-center">
+        <section className="quiz">
+          {/* <p className="correct-answers">
           correct answers : {correct}/{index}
         </p> */}
-        <article className="container">
-          <h2 dangerouslySetInnerHTML={{ __html: QuestionText }} />
-          <div className="btn-container">
-            {answers.map(
-              (
-                answer: { text: string; nextQuestion: string },
-                index: string
-              ) => {
-                return (
-                  <button
-                    key={index}
-                    className="answer-btn"
-                    dangerouslySetInnerHTML={{ __html: answer.text }}
-                    onClick={() => checkAnswer(index)}
-                  />
-                );
-              }
-            )}
-          </div>
-        </article>
+          <article className="container">
+            <h2 dangerouslySetInnerHTML={{ __html: QuestionText }} />
+            <div className="btn-container">
+              {answers.map(
+                (
+                  answer: { text: string; nextQuestion: string },
+                  index: string
+                ) => {
+                  return (
+                    <button
+                      key={index}
+                      className="answer-btn"
+                      dangerouslySetInnerHTML={{ __html: answer.text }}
+                      onClick={() => chooseAnswer(index)}
+                    />
+                  );
+                }
+              )}
+            </div>
+          </article>
 
-        {/* <button className="next-question" onClick={nextQuestion}>
+          {/* <button className="next-question" onClick={nextQuestion}>
           next question
         </button> */}
-      </section>
+        </section>
+        {answeredAll && (
+          <section className="container">
+            <h2>Thanks for answering all the questions</h2>
+            <div className="flex flex-col">
+              <h3>
+                Based on the choices and your experience, you can checkout
+              </h3>
+
+              {resultTags.map((tag, i) => {
+                <p key={i}>{tag}</p>;
+              })}
+            </div>
+          </section>
+        )}
+      </div>
     </main>
   );
 }

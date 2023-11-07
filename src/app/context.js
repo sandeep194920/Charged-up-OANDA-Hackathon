@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { quizStateMachine as quizQuestions } from "../data/data";
 
@@ -40,7 +40,8 @@ const AppProvider = ({ children }) => {
     allQuestions[initialQuestion]
   );
 
-  console.log("The question is", currentQuestion);
+  const [resultTags, setResultTags] = useState([]);
+  const [answeredAll, setAnsweredAll] = useState(false);
 
   // setup form
   const [quiz, setQuiz] = useState({
@@ -86,16 +87,23 @@ const AppProvider = ({ children }) => {
     });
   };
 
-  const checkAnswer = (value) => {
-    // if (value) {
-    //   setCorrect((prev) => prev + 1);
-    // }
-    // nextQuestion();
+  const chooseAnswer = (value) => {
+    const currentChoice = currentQuestion.answers[value];
     console.log("The clicked value is", value);
-    const nextQuestion = currentQuestion.answers[value].nextQuestion;
+    console.log("The current choice is", currentChoice);
+    currentChoice?.tag &&
+      setResultTags((prevResults) => [...prevResults, currentChoice["tag"]]);
+    const nextQuestion = currentChoice.nextQuestion;
     console.log("the next question is", nextQuestion);
     setCurrentQuestion(allQuestions[nextQuestion]);
   };
+
+  useEffect(() => {
+    if (currentQuestion.answers.length === 0) {
+      setAnsweredAll(true);
+      console.log("The tags are", resultTags);
+    }
+  }, [currentQuestion]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -140,13 +148,15 @@ const AppProvider = ({ children }) => {
         error,
         isModalOpen,
         nextQuestion,
-        checkAnswer,
+        chooseAnswer,
         closeModal,
         handleChange,
         handleSubmit,
         currentQuestion,
         setCurrentQuestion,
+        answeredAll,
         quiz,
+        resultTags,
       }}
     >
       {children}
