@@ -9,12 +9,8 @@ function UserResults() {
     <section className="flex flex-col items-center">
       <div className="quiz">
         <article className="container mt-12">
-          <h2>Thanks for answering all the questions</h2>
+          <h2>Based on the choices and your experience, you can checkout</h2>
           <div className="flex flex-col items-center justify-center ">
-            <p className="text-lg ">
-              Based on the choices and your experience, you can checkout
-            </p>
-
             {resultTags.map((tag: string, i: string) => {
               const cardProps = userResults[tag];
               return <Card key={i} {...cardProps} />;
