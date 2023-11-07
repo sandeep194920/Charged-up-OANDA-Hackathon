@@ -70,12 +70,14 @@ body {
 
 :root {
   /* dark shades of primary color*/
+  --clr-primary-oanda: hsl(214,92.2%,15.1%);
   --clr-primary-1: hsl(205, 86%, 17%);
   --clr-primary-2: hsl(205, 77%, 27%);
   --clr-primary-3: hsl(205, 72%, 37%);
   --clr-primary-4: hsl(205, 63%, 48%);
   /* primary/main color */
   --clr-primary-5: hsl(205, 78%, 60%);
+  
   /* lighter shades of primary color */
   --clr-primary-6: hsl(205, 89%, 70%);
   --clr-primary-7: hsl(205, 90%, 76%);
@@ -99,6 +101,7 @@ body {
   --clr-red-light: hsl(360, 71%, 66%);
   --clr-green-dark: hsl(125, 67%, 44%);
   --clr-green-light: hsl(125, 71%, 66%);
+  --clr-green-oanda:hsl(129, 39%, 36%);
   --clr-black: #222;
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
@@ -272,14 +275,15 @@ main {
   font-weight: 700;
   letter-spacing: var(--spacing);
   font-size: 1rem;
-  background: #ffb100;
-  color: var(--clr-black);
+  background: var(--clr-green-oanda);
+  /* background: #ffb100; */
+  color: var(--clr-white);
   transition: var(--transition);
   cursor: pointer;
 }
 .next-question:hover {
-  background: #805900;
-  color: #ffb100;
+  background: var(--clr-green-light);
+  color: var(--clr-black);
 }
 /*
 =============== 

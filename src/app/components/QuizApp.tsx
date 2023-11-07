@@ -8,52 +8,61 @@ import Loading from "./Loading";
 import Modal from "./Modal";
 function App() {
   const {
-    waiting,
+    // waiting,
     loading,
     questions,
     index,
     correct,
     nextQuestion,
     checkAnswer,
+    currentQuestion,
   } = useGlobalContext();
 
-  if (waiting) {
-    return <SetupForm />;
-  }
+  // if (waiting) {
+  //   return <SetupForm />;
+  // }
   if (loading) {
     return <Loading />;
   }
-  const { question, correct_answer, incorrect_answers } = questions[index];
-  // ^ Placing correct_answer at the end
-  // const answers = [...incorrect_answers, correct_answer]
+  // const { question, correct_answer, incorrect_answers } = questions[index];
+  // // ^ Placing correct_answer at the end
+  // // const answers = [...incorrect_answers, correct_answer]
 
-  // ^Let's shuffle the answers so that we don't have the correct_answer placed at the end always
-  let answers = [...incorrect_answers];
-  const tempIndex = Math.floor(Math.random() * 4);
-  answers.splice(tempIndex, 0, correct_answer);
+  // // ^Let's shuffle the answers so that we don't have the correct_answer placed at the end always
+  // let answers = [...incorrect_answers];
+  // const tempIndex = Math.floor(Math.random() * 4);
+  // answers.splice(tempIndex, 0, correct_answer);
+
+  const { text: QuestionText, answers } = currentQuestion;
 
   return (
     <main>
       <Modal />
       <section className="quiz">
-        <p className="correct-answers">
+        {/* <p className="correct-answers">
           correct answers : {correct}/{index}
-        </p>
+        </p> */}
         <article className="container">
-          <h2 dangerouslySetInnerHTML={{ __html: question }} />
+          <h2 dangerouslySetInnerHTML={{ __html: QuestionText }} />
           <div className="btn-container">
-            {answers.map((answer, index) => {
-              return (
-                <button
-                  key={index}
-                  className="answer-btn"
-                  dangerouslySetInnerHTML={{ __html: answer }}
-                  onClick={() => checkAnswer(correct_answer === answer)}
-                />
-              );
-            })}
+            {answers.map(
+              (
+                answer: { text: string; nextQuestion: string },
+                index: string
+              ) => {
+                return (
+                  <button
+                    key={index}
+                    className="answer-btn"
+                    dangerouslySetInnerHTML={{ __html: answer.text }}
+                    onClick={() => checkAnswer(index)}
+                  />
+                );
+              }
+            )}
           </div>
         </article>
+
         <button className="next-question" onClick={nextQuestion}>
           next question
         </button>

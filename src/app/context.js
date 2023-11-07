@@ -2,6 +2,8 @@
 import axios from "axios";
 import React, { useState, useContext } from "react";
 
+import { quizStateMachine as quizQuestions } from "../data/data";
+
 const table = {
   sports: 21,
   history: 23,
@@ -18,7 +20,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   // once waiting is set to false, then we can fetch and show the questions. Till then (as long as it is true), we will show the form
-  const [waiting, setWaiting] = useState(true);
+  // const [waiting, setWaiting] = useState(true);
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
   // to display the proper question, we have index state
@@ -28,6 +30,17 @@ const AppProvider = ({ children }) => {
   const [error, setError] = useState(false);
   // once all the questions are answered the modal is shown
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // set question
+
+  const allQuestions = quizQuestions.questions;
+
+  const initialQuestion = quizQuestions.currentQuestion;
+
+  const [currentQuestion, setCurrentQuestion] = useState(
+    allQuestions[initialQuestion]
+  );
+
+  console.log("The question is", currentQuestion);
 
   // setup form
   const [quiz, setQuiz] = useState({
@@ -38,7 +51,7 @@ const AppProvider = ({ children }) => {
 
   const fetchQuestions = async (url) => {
     setLoading(true);
-    setWaiting(false);
+    // setWaiting(false);
     const response = await axios(url).catch((err) => console.log(err));
     if (response) {
       const data = response.data.results;
@@ -46,14 +59,20 @@ const AppProvider = ({ children }) => {
         setQuestions(data);
         setLoading(false);
         setError(false);
-        setWaiting(false);
+        // setWaiting(false);
       } else {
-        setWaiting(true);
+        // setWaiting(true);
         setError(true);
       }
-    } else {
-      setWaiting(true);
     }
+    // else {
+    //   setWaiting(true);
+    // }
+  };
+
+  const fetchQuestion = () => {
+    setLoading(true);
+    // setWaiting(false);
   };
 
   const nextQuestion = () => {
@@ -68,10 +87,14 @@ const AppProvider = ({ children }) => {
   };
 
   const checkAnswer = (value) => {
-    if (value) {
-      setCorrect((prev) => prev + 1);
-    }
-    nextQuestion();
+    // if (value) {
+    //   setCorrect((prev) => prev + 1);
+    // }
+    // nextQuestion();
+    console.log("The clicked value is", value);
+    const nextQuestion = currentQuestion.answers[value].nextQuestion;
+    console.log("the next question is", nextQuestion);
+    setCurrentQuestion(allQuestions[nextQuestion]);
   };
 
   const openModal = () => {
@@ -80,7 +103,7 @@ const AppProvider = ({ children }) => {
 
   const closeModal = () => {
     // once we close the modal, we need this waiting to be true so that we come to initial phase of showing categories
-    setWaiting(true);
+    // setWaiting(true);
     setCorrect(0);
     setIsModalOpen(false);
   };
@@ -109,7 +132,7 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        waiting,
+        // waiting,
         loading,
         questions,
         index,
@@ -121,6 +144,8 @@ const AppProvider = ({ children }) => {
         closeModal,
         handleChange,
         handleSubmit,
+        currentQuestion,
+        setCurrentQuestion,
         quiz,
       }}
     >
