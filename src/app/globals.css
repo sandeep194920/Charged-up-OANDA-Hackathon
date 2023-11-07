@@ -102,9 +102,9 @@ body {
   --clr-green-dark: hsl(125, 67%, 44%);
   --clr-green-light: hsl(125, 71%, 66%);
   --clr-green-oanda:hsl(129, 39%, 36%);
-  --clr-black: #222;
+  --clr-black: #000000;
   --transition: all 0.3s linear;
-  --spacing: 0.1rem;
+  --spacing: 0.03rem;
   --radius: 0.25rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -208,7 +208,7 @@ Quiz
 */
 
 main {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,19 +229,21 @@ main {
   text-align: center;
   line-height: 1.5;
   text-transform: none;
+  font-size: 1.5rem;
+  letter-spacing: 0px;
 }
 .answer-btn {
   display: block;
   width: 100%;
-  margin: 0.75rem auto;
-  background: var(--clr-primary-7);
+  margin: 0.9rem auto;
+  background: var(--clr-primary-8);
   border-radius: var(--radius);
   border-color: transparent;
   color: var(--clr-black);
   letter-spacing: var(--spacing);
   font-size: 1rem;
   cursor: pointer;
-  padding: 0.5rem 0;
+  padding: 0.7rem 1rem;
   transition: var(--transition);
 }
 @media screen and (min-width: 576px) {

@@ -63,9 +63,9 @@ function App() {
           </div>
         </article>
 
-        <button className="next-question" onClick={nextQuestion}>
+        {/* <button className="next-question" onClick={nextQuestion}>
           next question
-        </button>
+        </button> */}
       </section>
     </main>
   );
