@@ -226,70 +226,83 @@ export const quizStateMachine = {
   },
 };
 
-export const RESULTS = {
+export const userResults = {
   CUSTOM_CHARTS: {
+    heading: "Cutting edge charts",
     text: "OANDA offers cutting edge charting tools for traders on Web, Mobile and the MT4 Platform. \n - Place, view, and close trades and orders, including limit and stop orders, directly from Advanced Charts.  \n - 11 popular chart types, including candles, Renko, point & figure and Heikin-Ashi. \n - Choose from over 65+ popular technical indicators, including Moving Averages, MACD, Bollinger Bands® and more",
     link: "https://www.oanda.com/ca-en/trading/tools/advanced-charts/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   PREMIUM_TECHNICAL: {
+    heading: "MT4 Premium tools",
     text: "With an OANDA MT4 premium upgrade you get access to power technical tools like the Correlation Matrix, Stealth Orders and even a Tick chart trader that allows for fast market entries.",
     link: "https://www.oanda.com/ca-en/trading/platforms/mt4-premium-indicators/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   PRICING_MT4: {
+    heading: "MT4 Pricing",
     text: "Get reliable pricing on all trades and data from OANDA Web & Mobile Platforms. You can even use OANDA`s pricing and data ported into the MT4 or TradingView platforms.",
     link: "https://www.oanda.com/ca-en/trading/our-pricing/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   ADVANCED: {
+    heading: "Make your trading fast and easy",
     text: "So your an advanced trader who wants cutting edge technology? OANDA has it, with everything from a mobile trading app to keyboard short cuts customized for full time traders.",
     link: "https://www.oanda.com/ca-en/trading/tools/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   PREMIUM: {
+    heading: "Premium services",
     text: "OANDA offers a wide variety of premium services to enhance your trading experience. From five-minute orderbooking to one-cancels-the-other (OCO) for breakouts or reversions.",
     link: "https://www.oanda.com/ca-en/trading/platforms/metatrader-4/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   CUSTOM_WEB: {
+    heading: "Enhanced web experience",
     text: "Interested in a fully supported Web Platform? OANDA has your back! Out Web platform includes advanced charting and a next generation engine to support speedy trades.",
     link: "https://www.oanda.com/ca-en/trading/platforms/oanda-trade-web/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   FAST_PRICING: {
+    heading: "Get the best pricing",
     text: "Fast execution ensures you are getting the best available price when you trade with us. Our award-winning* trading platform is engineered for reliability and speed.",
     link: "https://www.oanda.com/ca-en/trading/our-pricing/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   ALL_MARKETS: {
+    heading: "Enter all the markets using a single platform",
     text: "With over 100 CFD`s including, Commodities, Metals, Indices, Crypto, FOREX & Bonds, OANDA is a truly global broker.",
     link: "https://www.oanda.com/ca-en/trading/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   TRANSPARENT_PRICING: {
+    heading: "Transparent pricing, no surprises",
     text: "OANDA promises its users, honest and up front pricing on all of its services. Whether you are on margin or completing a wire-transfer you can rely on OANDA.",
     link: "https://www.oanda.com/ca-en/trading/our-charges/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   MOBILE: {
+    heading: "Trade from anywhere with our user-friendly app",
     text: "Trade on the go with our native apps for Android, iPhone and tablet devices. Access our full range of CFD markets along with advanced mobile charting functionality, dozens of technical indicators and tools.",
     link: "https://www.oanda.com/ca-en/trading/platforms/oanda-trade-mobile/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   MT4: {
+    heading: "MT4",
     text: "Use the powerful MT4 trading platform with OANDA`s pricing and execution.",
     link: "https://www.oanda.com/ca-en/trading/platforms/metatrader-4/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   WEB: {
+    heading: "Web platform",
     text: "Trade CFDs with an award-winning* web trading platform. Our powerful platform combines an intuitive interface, a suite of technical analysis tools, a sophisticated charting package and more.",
     link: "https://www.oanda.com/ca-en/trading/platforms/oanda-trade-web/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
   TUTORIALS: {
+    heading: "Learn from the market leader to make money",
     text: "New to trading CFD`s? OANDA has you covered, with a full tutorial section that will educate you on the world of CFD`s.",
     link: "https://www.oanda.com/ca-en/trading/learn/",
-    image: null,
+    image: "/images/test_img.jpg",
   },
 };

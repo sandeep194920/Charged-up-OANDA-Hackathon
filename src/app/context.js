@@ -2,7 +2,7 @@
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 
-import { quizStateMachine as quizQuestions } from "../data/data";
+import { quizStateMachine as quizQuestions, userResults } from "../data/data";
 
 const table = {
   sports: 21,
@@ -40,7 +40,7 @@ const AppProvider = ({ children }) => {
     allQuestions[initialQuestion]
   );
 
-  const [resultTags, setResultTags] = useState([]);
+  const [resultTags, setResultTags] = useState([...Object.keys(userResults)]);
   const [answeredAll, setAnsweredAll] = useState(false);
 
   // setup form
@@ -102,8 +102,10 @@ const AppProvider = ({ children }) => {
     if (currentQuestion.answers.length === 0) {
       setAnsweredAll(true);
       console.log("The tags are", resultTags);
+      setLoading(true);
+      setInterval(() => setLoading(false), 3000);
     }
-  }, [currentQuestion]);
+  }, [currentQuestion, loading]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -157,6 +159,7 @@ const AppProvider = ({ children }) => {
         answeredAll,
         quiz,
         resultTags,
+        userResults,
       }}
     >
       {children}
