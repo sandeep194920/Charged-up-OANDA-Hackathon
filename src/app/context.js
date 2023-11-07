@@ -17,11 +17,15 @@ const AppProvider = ({ children }) => {
 
   const [showUserResults, setShowUserResults] = useState(false);
 
+  const [showLanding, setShowLanding] = useState(false);
+
   // uncomment this useState if you want to see all the products in userResults
   // const [resultTags, setResultTags] = useState([...Object.keys(userResults)]);
 
   const [resultTags, setResultTags] = useState([]);
   const [answeredAll, setAnsweredAll] = useState(false);
+
+  const [showWelcomePage, setShowWelcomePage] = useState(true);
 
   const chooseAnswer = (value) => {
     const currentChoice = currentQuestion.answers[value];
@@ -38,7 +42,7 @@ const AppProvider = ({ children }) => {
       setInterval(() => {
         setShowUserResults(true);
         setLoading(false);
-      }, 4000);
+      }, 3000);
     }
   }, [currentQuestion, loading]);
 
@@ -53,6 +57,8 @@ const AppProvider = ({ children }) => {
         resultTags,
         userResults,
         showUserResults,
+        showLanding,
+        setShowLanding,
       }}
     >
       {children}
