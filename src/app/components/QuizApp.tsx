@@ -2,10 +2,11 @@
 
 import React from "react";
 import { useGlobalContext } from "../context";
-
+import Image from "next/image";
 import SetupForm from "./SetupForm";
 import Loading from "./Loading";
 import Modal from "./Modal";
+import Card from "./Card";
 function App() {
   const {
     // waiting,
@@ -18,6 +19,7 @@ function App() {
     currentQuestion,
     answeredAll,
     resultTags,
+    userResults,
   } = useGlobalContext();
 
   // if (waiting) {
@@ -64,26 +66,27 @@ function App() {
                 }
               )}
             </div>
+            {answeredAll && (
+              <article className="container mt-12">
+                <h2>Thanks for answering all the questions</h2>
+                <div className="flex flex-col items-center justify-center ">
+                  <p className="text-lg ">
+                    Based on the choices and your experience, you can checkout
+                  </p>
+
+                  {resultTags.map((tag: string, i: string) => {
+                    const cardProps = userResults[tag];
+                    return <Card key={i} {...cardProps} />;
+                  })}
+                </div>
+              </article>
+            )}
           </article>
 
           {/* <button className="next-question" onClick={nextQuestion}>
           next question
         </button> */}
         </section>
-        {answeredAll && (
-          <section className="container">
-            <h2>Thanks for answering all the questions</h2>
-            <div className="flex flex-col">
-              <h3>
-                Based on the choices and your experience, you can checkout
-              </h3>
-
-              {resultTags.map((tag, i) => {
-                <p key={i}>{tag}</p>;
-              })}
-            </div>
-          </section>
-        )}
       </div>
     </main>
   );
