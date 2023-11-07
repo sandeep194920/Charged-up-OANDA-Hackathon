@@ -11,7 +11,7 @@ type CardProps = {
 
 function Card({ heading, text, link, image }: CardProps) {
   return (
-    <div className="max-w-[60rem] min-w-[60rem] my-10 bg-gray-100 p-8 rounded-lg">
+    <div className="max-w-[60rem] min-w-[60rem] my-5 bg-gray-100 p-8 rounded-lg">
       <div className="flex flex-col">
         <h3 className="mb-6">{heading}</h3>
         <div className="flex justify-between space-x-6 ">
