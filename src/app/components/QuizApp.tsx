@@ -12,13 +12,13 @@ function App() {
     loading,
     chooseAnswer,
     currentQuestion,
-    answeredAll,
-    resultTags,
-    userResults,
     showUserResults,
+    showWelcomePage,
   } = useGlobalContext();
 
   const { text: QuestionText, answers } = currentQuestion;
+
+  if (showWelcomePage) return <SetupForm />;
 
   return (
     <main>

@@ -23,6 +23,8 @@ const AppProvider = ({ children }) => {
   const [resultTags, setResultTags] = useState([]);
   const [answeredAll, setAnsweredAll] = useState(false);
 
+  const [showWelcomePage, setShowWelcomePage] = useState(true);
+
   const chooseAnswer = (value) => {
     const currentChoice = currentQuestion.answers[value];
     currentChoice?.tag &&
@@ -38,7 +40,7 @@ const AppProvider = ({ children }) => {
       setInterval(() => {
         setShowUserResults(true);
         setLoading(false);
-      }, 4000);
+      }, 3000);
     }
   }, [currentQuestion, loading]);
 
@@ -53,6 +55,7 @@ const AppProvider = ({ children }) => {
         resultTags,
         userResults,
         showUserResults,
+        showWelcomePage,
       }}
     >
       {children}
