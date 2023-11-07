@@ -17,6 +17,8 @@ const AppProvider = ({ children }) => {
 
   const [showUserResults, setShowUserResults] = useState(false);
 
+  const [showLanding, setShowLanding] = useState(false);
+
   // uncomment this useState if you want to see all the products in userResults
   // const [resultTags, setResultTags] = useState([...Object.keys(userResults)]);
 
@@ -55,7 +57,8 @@ const AppProvider = ({ children }) => {
         resultTags,
         userResults,
         showUserResults,
-        showWelcomePage,
+        showLanding,
+        setShowLanding,
       }}
     >
       {children}
